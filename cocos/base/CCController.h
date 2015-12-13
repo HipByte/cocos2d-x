@@ -194,7 +194,7 @@ public:
     
     /**
      * Changes whether D-pad should report raw values.
-     * @param allowsRotation   True, if D-pad values should be transposed, when controller is rotated.
+     * @param allowsRotation   True, if D-pad values should be reported as absolute values.
      */
     void setAbsoluteDpadValues(bool absoluteDpadValues);
     
