@@ -21,8 +21,7 @@ This file was modified to fit the cocos2d-x project
 #include "MathUtil.h"
 #include "base/ccMacros.h"
 
-// Android NDK r11 does not provide cpu-features.h for Intel CPU platform
-#if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID && (defined(__arm__) || defined(__arm64__) || defined (__aarch64__)))
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
 #include <cpu-features.h>
 #endif
 
