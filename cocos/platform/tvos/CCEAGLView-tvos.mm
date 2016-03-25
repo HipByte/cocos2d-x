@@ -181,6 +181,14 @@ Copyright (C) 2008 Apple Inc. All Rights Reserved.
 
 - (void)didMoveToWindow;
 {
+#if 0
+    // FIXME
+    // The following notification no longer can be used at tvOS 9.2 
+    //     UIKIT_EXTERN NSString *const UIKeyboardWillShowNotification __TVOS_PROHIBITED;
+    //     UIKIT_EXTERN NSString *const UIKeyboardDidShowNotification __TVOS_PROHIBITED;
+    //     UIKIT_EXTERN NSString *const UIKeyboardWillHideNotification __TVOS_PROHIBITED;
+    //     UIKIT_EXTERN NSString *const UIKeyboardDidHideNotification __TVOS_PROHIBITED;
+
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(onUIKeyboardNotification:)
                                                  name:UIKeyboardWillShowNotification object:nil];
@@ -195,6 +203,7 @@ Copyright (C) 2008 Apple Inc. All Rights Reserved.
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(onUIKeyboardNotification:)
                                                  name:UIKeyboardDidHideNotification object:nil];
+#endif
 }
 
 -(int) getWidth
