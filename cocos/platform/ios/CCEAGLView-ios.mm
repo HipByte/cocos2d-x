@@ -181,6 +181,7 @@ Copyright (C) 2008 Apple Inc. All Rights Reserved.
 
 - (void)didMoveToWindow;
 {
+#if !defined(CC_TARGET_OS_TVOS)
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(onUIKeyboardNotification:)
                                                  name:UIKeyboardWillShowNotification object:nil];
@@ -195,6 +196,7 @@ Copyright (C) 2008 Apple Inc. All Rights Reserved.
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(onUIKeyboardNotification:)
                                                  name:UIKeyboardDidHideNotification object:nil];
+#endif
 }
 
 -(int) getWidth
@@ -727,6 +729,7 @@ Copyright (C) 2008 Apple Inc. All Rights Reserved.
 
 #pragma mark - UIKeyboard notification
 
+#if !defined(CC_TARGET_OS_TVOS)
 - (void)onUIKeyboardNotification:(NSNotification *)notif;
 {
     NSString * type = notif.name;
@@ -860,6 +863,7 @@ Copyright (C) 2008 Apple Inc. All Rights Reserved.
         isKeyboardShown_ = NO;
     }
 }
+#endif
 
 #if !defined(CC_TARGET_OS_TVOS)
 UIInterfaceOrientation getFixedOrientation(UIInterfaceOrientation statusBarOrientation)
